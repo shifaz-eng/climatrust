@@ -3,8 +3,8 @@
 .career-card {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 380px;
+  width: 340px;
+  max-width: 100%;
   background: #ffffff;
   border-radius: 16px;
   overflow: hidden;
@@ -25,14 +25,15 @@
   box-shadow: 0 12px 28px rgba(17, 24, 39, 0.14);
 }
 
-/* ---------- Image ---------- */
+/* ---------- Image (1:1) ---------- */
 
 .card-image-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   background: #e5e7eb;
+  flex-shrink: 0;
 }
 
 .card-bg-img {
@@ -100,3 +101,95 @@
   color: #111827;
   white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Content (fixed height so every card matches) ---------- */
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 22px 24px;
+  flex: 1;
+}
+
+.meta-dept {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1d939a;
+}
+
+/* Reserves space for 3 lines; longer titles are trimmed with "…" */
+.job-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #111827;
+  min-height: calc(1.35em * 3);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Reserves space for 2 lines */
+.email-info {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #6b7280;
+  min-height: calc(1.5em * 2);
+}
+
+.email-info strong {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* ---------- Button (pinned to the bottom) ---------- */
+
+.apply-btn {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 10px 22px;
+  background: #1d939a;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.apply-btn:hover {
+  background: #167a80;
+  transform: translateY(-1px);
+}
+
+.apply-btn:focus-visible {
+  outline: 2px solid #1d939a;
+  outline-offset: 3px;
+}
+
+/* ---------- Optional grid wrapper for several cards ---------- */
+
+.careers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 340px);
+  justify-content: center;
+  gap: 30px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 479px) {
+  .career-card {
+    width: 100%;
+  }
+  .job-title {
+    font-size: 18px;
+  }
+}

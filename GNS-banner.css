@@ -2,12 +2,13 @@
 
 .hero-banner-section {
   position: relative;
-  width: 100%;
+  display: block;
+  margin: 0 12vw 80px 12vw;   /* left/right 12vw, space below before footer */
   aspect-ratio: 1580 / 540;
   min-height: 220px;
   max-height: 560px;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 0;
   background-color: #1b2a1f;
   background-size: cover;
   background-position: center;

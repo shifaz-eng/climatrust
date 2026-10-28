@@ -3,7 +3,10 @@
 .hero-banner-section {
   position: relative;
   display: block;
-  margin: 0 12vw 80px 12vw;   /* left/right 12vw, space below before footer */
+  box-sizing: border-box;
+  width: calc(100% - 24vw) !important;      /* 12vw each side */
+  max-width: none !important;
+  margin: 0 auto 80px auto !important;      /* centred, 80px space below */
   aspect-ratio: 1580 / 540;
   min-height: 220px;
   max-height: 560px;
@@ -14,7 +17,6 @@
   background-position: center;
   background-repeat: no-repeat;
   font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
-  box-sizing: border-box;
 }
 
 /* Dark gradient so the white title stays readable over the photo */
@@ -37,7 +39,7 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  padding: 0 0 28px 48px;
+  padding: 0 0 28px 32px;
   box-sizing: border-box;
   z-index: 2;
 }
@@ -53,7 +55,7 @@
 .banner-title {
   margin: 0;
   color: #ffffff;
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.01em;
@@ -61,11 +63,11 @@
 }
 
 .banner-icon {
-  width: 40px;
-  height: 40px;
+  width: 28px;
+  height: 28px;
   flex-shrink: 0;
   fill: #ffffff;
-  margin-top: 6px;
+  margin-top: 4px;
   transition: transform 0.25s ease;
 }
 
@@ -83,39 +85,24 @@
 /* Tablet */
 @media (max-width: 991px) {
   .hero-banner-section {
+    width: calc(100% - 16vw) !important;
+    margin: 0 auto 60px auto !important;
     aspect-ratio: 16 / 7;
   }
-  .banner-content-wrapper {
-    padding: 0 0 22px 32px;
-  }
-  .banner-title {
-    font-size: 36px;
-  }
-  .banner-icon {
-    width: 30px;
-    height: 30px;
-    margin-top: 4px;
-  }
+  .banner-content-wrapper { padding: 0 0 20px 24px; }
+  .banner-title { font-size: 30px; }
+  .banner-icon { width: 24px; height: 24px; }
 }
 
 /* Mobile */
 @media (max-width: 600px) {
   .hero-banner-section {
+    width: calc(100% - 10vw) !important;
+    margin: 0 auto 48px auto !important;
     aspect-ratio: 4 / 3;
-    border-radius: 4px;
   }
-  .banner-content-wrapper {
-    padding: 0 20px 18px 20px;
-  }
-  .banner-link {
-    gap: 10px;
-  }
-  .banner-title {
-    font-size: 26px;
-  }
-  .banner-icon {
-    width: 22px;
-    height: 22px;
-    margin-top: 3px;
-  }
+  .banner-content-wrapper { padding: 0 0 16px 16px; }
+  .banner-link { gap: 10px; }
+  .banner-title { font-size: 22px; }
+  .banner-icon { width: 20px; height: 20px; margin-top: 3px; }
 }

@@ -52,11 +52,13 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  align-items: stretch;
 }
 
 .event-card {
   display: flex;
   flex-direction: column;
+  height: 100%;
   background: #ffffff;
   border-radius: 16px;
   overflow: hidden;
@@ -69,14 +71,15 @@
   box-shadow: 0 12px 28px rgba(17, 24, 39, 0.14);
 }
 
-/* ---------- Image ---------- */
+/* ---------- Image (1:1) ---------- */
 
 .event-image-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   background: #e5e7eb;
+  flex-shrink: 0;
 }
 
 .event-img {
@@ -154,7 +157,7 @@
   color: #1d939a;
 }
 
-/* ---------- Content ---------- */
+/* ---------- Content (same height on every card) ---------- */
 
 .event-content {
   padding: 20px 22px 24px;
@@ -173,12 +176,18 @@
   color: #1d939a;
 }
 
+/* Reserves space for 3 lines; longer titles are trimmed with "…" */
 .event-title {
   margin: 0;
   font-size: 18px;
   font-weight: 700;
   line-height: 1.4;
   color: #111827;
+  min-height: calc(1.4em * 3);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* ---------- Responsive ---------- */
